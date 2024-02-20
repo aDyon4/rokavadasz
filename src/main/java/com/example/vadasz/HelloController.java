@@ -16,6 +16,11 @@ public class HelloController {
     private Image[] icon = new Image[5];
 
     private final int DARK = 0;
+    private final int FOX = 2;
+    private final int TREE = 5;
+
+    private int rokaDb = 0;
+    private int rokaMax = 0;
 
     private ImageView[][] it = new ImageView[16][32];
     private int[][] t = new int[16][32];
@@ -30,5 +35,20 @@ public class HelloController {
                 pnJatek.getChildren().add(it[s][o]);
             }
         }
+        gondol();
     }
+
+
+    private void gondol(){
+        for(int s = 0;s<16;s++){
+            for(int o = 0;o<32;o++){
+                if(Math.random() < 0.1) { t[s][o] = FOX; rokaDb++; }
+                else t[s][o] = TREE;
+            }
+        }
+        rokaMax = rokaDb;
+        lbRoka.setText(rokaDb + " / " + rokaMax);
+    }
+
+
 }

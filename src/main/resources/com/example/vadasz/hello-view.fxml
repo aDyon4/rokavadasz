@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -8,7 +9,11 @@
 
 <VBox xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vadasz.HelloController">
    <children>
-      <Pane fx:id="pnJatek" prefHeight="788.0" prefWidth="1556.0" style="-fx-background-color: white; -fx-border-color: grey;" />
+      <Pane fx:id="pnJatek" prefHeight="788.0" prefWidth="1556.0" style="-fx-background-color: white; -fx-border-color: grey;">
+         <cursor>
+            <Cursor fx:constant="CROSSHAIR" />
+         </cursor>
+      </Pane>
       <HBox>
          <children>
             <Label fx:id="lbLoves" text="0 lövés / 0 találat">
