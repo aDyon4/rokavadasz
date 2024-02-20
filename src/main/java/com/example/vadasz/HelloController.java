@@ -4,6 +4,9 @@ import javafx.animation.Animation;
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.scene.ImageCursor;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -122,6 +125,30 @@ public class HelloController {
         lovesDb++;
         lbRoka.setText(rokaDb + " / " + rokaMax);
         lbLoves.setText(lovesDb+" lövés / "+talaltDb+" találat");
+    }
+
+    private void felfed(){
+        for(int s = 0;s<16;s++){
+            for(int o = 0;o<32;o++){
+                it[s][o].setImage(icon[t[s][o]]);
+            }
+        }
+    }
+
+    private void vege(){
+        if(rokaDb==0) {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setTitle("GYŐZTÉL");
+            a.setHeaderText(null);
+            String txt = String.format("%d lövésből %d talált, ami %d%%\n", lovesDb, talaltDb, talaltDb*100/lovesDb);
+            txt += String.format("%d rókából %d lett lelőve, ami %d%%", rokaMax, talaltDb, talaltDb*100/rokaMax);
+            a.setContentText(txt);
+
+            a.getButtonTypes().removeAll();
+            a.getButtonTypes().add(new ButtonType("Újra"));
+            a.onCloseRequestProperty(e -> gondol());
+            a.show();
+        }
     }
 
 }
